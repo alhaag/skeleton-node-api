@@ -1,3 +1,14 @@
+/**
+ * Middleware de validação do token de acesso (JWT - Jason Web Token).
+ *
+ * Tratamento de requisições HTTP de usuários.
+ *
+ * @author André Luiz Haag <andreluizhaag@gmail.com>
+ * @license LICENSE.md
+ * @see middlewares/images
+ * @see http://apidocjs.com/
+ */
+
 var model = require('../model/user');
 var jwt = require('jwt-simple');
 
@@ -9,7 +20,7 @@ var jwt = require('jwt-simple');
  * realizado o login novamente. Isso forne uma forma de invalidar o token que
  * neta API é realizado pela rota /logout.
  *
-*/
+ */
 module.exports = function(req, res, next) {
   var token = (req.body && req.body.access_token) || (req.query && req.query.access_token) || req.headers['x-access-token'];
   // se tiver o token
