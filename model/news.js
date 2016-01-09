@@ -1,7 +1,20 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
 
-// Definição do modelo
+/**
+ * Definição do modelo
+ {
+    "title": "Título da notícia",
+    "description": "Descrição da notícia"
+    "slug": "titulo-da-noticia"
+    "images": [
+      {
+        "index": 1,
+        "url": "/news/56772f52a7f4de1bc965acf3/img.jpg",
+        "type": ""
+      }
+    ]
+ }
+ */
 var NewsSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -10,6 +23,9 @@ var NewsSchema = new mongoose.Schema({
   description: {
     type: String,
     required: true
+  },
+  images: {
+    type: Array
   }
 });
 
