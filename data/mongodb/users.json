@@ -1,18 +1,21 @@
 {
   "active": true,
   "username": "alhaag",
+  "email": "andreluizhaag@gmail.com",
   "password": "$2a$05$ooqAbytsQU2lAgBG.Ob8x.4T5F/AO/8s6fSYZXdvIXNDtnNt5h1uq",
   "loggedIn": false
 }
 {
   "active": true,
   "username": "kauan",
+  "email": "example@mail.com",
   "password": "$2a$05$ooqAbytsQU2lAgBG.Ob8x.4T5F/AO/8s6fSYZXdvIXNDtnNt5h1uq",
   "loggedIn": false
 }
 {
   "active": true,
   "username": "margarete",
+  "email": "example2@mail.com",
   "password": "$2a$05$ooqAbytsQU2lAgBG.Ob8x.4T5F/AO/8s6fSYZXdvIXNDtnNt5h1uq",
   "loggedIn": false
 }
