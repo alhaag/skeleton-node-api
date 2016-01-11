@@ -44,7 +44,7 @@ mongoose.connect(config.database);
 app.use('/', test);
 app.use('/login', login);
 app.use('/logout', accessValidation, logout);
-app.use('/user', accessValidation, user);
+app.use('/user', /*accessValidation,*/ user);
 app.use('/news', /*accessValidation,*/ news);
 
 // catch 404 and forward to error handler

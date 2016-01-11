@@ -1,15 +1,156 @@
 {
-  "title": "Título 1",
+  "slug": "titulo-da-noticia-1",
+  "title": "Título da Notícia 1",
   "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "images": []
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
 }
 {
-  "title": "Título 2",
+  "slug": "titulo-da-noticia-2",
+  "title": "Título da Notícia 2",
   "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "images": []
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
 }
 {
-  "title": "Título 3",
+  "slug": "titulo-da-noticia-3",
+  "title": "Título da Notícia 3",
   "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "images": []
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
+}
+{
+  "slug": "titulo-da-noticia-4",
+  "title": "Título da Notícia 4",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
+}
+{
+  "slug": "titulo-da-noticia-5",
+  "title": "Título da Notícia 5",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
+}
+{
+  "slug": "titulo-da-noticia-6",
+  "title": "Título da Notícia 6",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
+}
+{
+  "slug": "titulo-7",
+  "title": "Título 7",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
+}
+{
+  "slug": "titulo-8",
+  "title": "Título 8",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
+}
+{
+  "slug": "titulo-9",
+  "title": "Título 9",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
+}
+{
+  "slug": "titulo-10",
+  "title": "Título 10",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
+}
+{
+  "slug": "titulo-11",
+  "title": "Título 11",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
+}
+{
+  "slug": "titulo-12",
+  "title": "Título 12",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
+}
+{
+  "slug": "titulo-13",
+  "title": "Título 13",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z",
+  "images": [],
+  "seo": {
+    "description": "",
+    "keyWords": ""
+  }
 }

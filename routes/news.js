@@ -17,57 +17,204 @@ var NewsModel = require('../model/news');
 /**
  * @api {GET} /news Listar
  * @apiGroup News
- * @apiDescription Obter lista de notícias.
- * @apiExample {curl} Example usage:
- *   curl -X GET http://localhost/news -H "x-access-token: <your_access_token>"
+ * @apiDescription listar registros.
+ * @apiPermission admin
+ *
+ * @apiHeader {String} x-access-token Token de acesso.
+ *
+ * @apiParam {String} [search] Uma ou mais palavras a serem buscadas. Quando este parâmetro for informado
+ * apenas registros contendo ao menos uma das palavras buscadas serão retornados
+ * @apiParam {Number} [page] Indice da página.
+ * @apiParam {Number} [limit] Quantidade por página.
+ * @apiParam {string="title","createdAt"} [orderBy=createdAt] Campo pelo qual os registros devem ser ordenados.
+ * @apiParam {string="asc","desc"} [orderDirection=desc] Sentido da ordenação, "asc" ou "desc".
+ * @apiParamExample {String} Request-Example:
+ *   /news?search=pesquisar&page=1&limit=10&orderBy=title&orderDirection=asc
+ *
+ * @apiSuccessExample {json} Success-Reponse:
+ *   HTTP/1.1 200 OK
+ *   [
+ *     {
+ *       "_id": "5691565823220b7a4790b211",
+ *       "slug": "titulo-1"
+ *       "title": "Título 1",
+ *       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
+ *       "createdAt": "2016-01-10T22:11:54.157Z",
+ *       "updatedAt": "2016-01-10T22:11:54.157Z",
+ *       "images": []
+ *     },
+ *     {
+ *       "_id": "5691565823220b7a4790b212",
+ *       "slug": "titulo-2"
+ *       "title": "Título 2",
+ *       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
+ *       "createdAt": "2016-01-10T22:11:54.157Z",
+ *       "updatedAt": "2016-01-10T22:11:54.157Z",
+ *       "images": []
+ *     }
+ *   ]
+ *
+ * @apiErrorExample {json} Error-400:
+ *     HTTP/1.1 400 Bad Request
+ *     {
+ *       "message": "news validation failed",
+ *       "name": "ValidationError",
+ *       "errors": {
+ *         "title": {
+ *           "properties": {
+ *             "type": "required",
+ *             "message": "Path `{PATH}` is required.",
+ *             "path": "title",
+ *             "value": ""
+ *           },
+ *           "message": "Path `title` is required.",
+ *           "name": "ValidatorError",
+ *           "kind": "required",
+ *           "path": "title",
+ *           "value": ""
+ *         }
+ *       }
+ *     }
  */
 router.get('/', function(req, res, next) {
-  NewsModel.find({}, function (err, docs) {
+  var search = req.query.search || '';
+  var page = req.query.page || 1;
+  var limit = req.query.limit || 10;
+  var orderBy = req.query.orderBy || 'asc';
+  var orderDirection = req.query.orderDirection || 'asc';
+
+  NewsModel.paginate({}, { page: 2, limit: 3 }, function (err, docs) {
     res.json(docs);
   });
 });
 
 /**
- * @api {GET} /news/:id Obter uma notícia
+ * @api {GET} /news/:id Recuperar
  * @apiGroup News
- * @apiDescription Obtem uma notícia.
+ * @apiDescription Recupera uma notícia por id ou slug.
+ * @apiPermission admin
+ *
+ * @apiHeader {String} x-access-token Token de acesso.
+ *
+ * @apiParam {String} id O recurso pode ser obtido pela identificação do campo <code>_id</code> ou <code>slug</code>.
+ *
+ * @apiSuccessExample {json} Success-Reponse:
+ *   HTTP/1.1 200 OK
+ *   {
+ *     "_id": "5691565823220b7a4790b211",
+ *     "slug": "titulo-1"
+ *     "title": "Título 1",
+ *     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
+ *     "createdAt": "2016-01-10T22:11:54.157Z",
+ *     "updatedAt": "2016-01-10T22:11:54.157Z",
+ *     "images": []
+ *   }
+ *
+ * @apiErrorExample {json} Er ror-404:
+ *     HTTP/1.1 404 Not Found
  */
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
-  NewsModel.findOne({_id: id}, function (err, docs) {
-    res.json(docs);
+  // search by _id or slug
+  var query = {$or: [{slug: id}]};
+  if (id.match(/^[0-9a-fA-F]{24}$/)) {
+    query.$or.push({_id: id});
+  }
+  NewsModel.findOne(query, function (err, result) {
+    if (err) return res.status(400).json(err);
+    if (result === null) return res.status(404).end();
+    return res.json(result);
   });
 });
 
 /**
- * @api {POST} /news Incluir
+ * @api {POST} /news Criar
  * @apiGroup News
- * @apiDescription Incluir uma notícia.
+ * @apiDescription Criar uma nova notícia.
+ * @apiPermission admin
+ *
+ * @apiHeader {String} x-access-token Token de acesso.
+ *
+ * @apiSuccessExample {json} Success-Reponse:
+ *   HTTP/1.1 200 OK
+ *   {
+ *     "_id": "5691565823220b7a4790b211",
+ *     "slug": "titulo-1"
+ *     "title": "Título 1",
+ *     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
+ *     "createdAt": "2016-01-10T22:11:54.157Z",
+ *     "updatedAt": "2016-01-10T22:11:54.157Z",
+ *     "images": []
+ *   }
+ *
+ * @apiErrorExample {json} Error-400:
+ *     HTTP/1.1 400 Bad Request
+ *     {
+ *       "message": "news validation failed",
+ *       "name": "ValidationError",
+ *       "errors": {
+ *         "title": {
+ *           "properties": {
+ *             "type": "required",
+ *             "message": "Path `{PATH}` is required.",
+ *             "path": "title",
+ *             "value": ""
+ *           },
+ *           "message": "Path `title` is required.",
+ *           "name": "ValidatorError",
+ *           "kind": "required",
+ *           "path": "title",
+ *           "value": ""
+ *         }
+ *       }
+ *     }
+ *
+ * @apiErrorExample {json} Er ror-404:
+ *     HTTP/1.1 404 Not Found
  */
 router.post('/', function(req, res, next) {
-  // preenche o modelo
+  // model fill
   var data = new NewsModel({
     title: req.body.title,
     description: req.body.description
   });
-  // salva no BD
-  data.save(function(err) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json({ message: 'Nova notícia criada com sucesso', data: data });
-    }
+  // save doc
+  data.save(function(err, result) {
+    if (err) return res.status(400).json(err);
+    return res.json({
+      message: 'Novo registro criado com sucesso',
+      news: result
+    });
   });
 });
 
 /**
  * @api {PUT} /news/:id Atualizar
  * @apiGroup News
- * @apiDescription Atualizar uma notícia.
+ * @apiDescription Atualizar uma notícia específica.
  */
- router.put('/', function(req, res, next) {
-  next(new Error("Pendente de implementação"));
- });
+router.put('/:id', function(req, res, next) {
+  var id = req.params.id;
+  // search by _id or slug
+  var query = {$or: [{slug: id}]};
+  if (id.match(/^[0-9a-fA-F]{24}$/)) {
+    query.$or.push({_id: id});
+  }
+  NewsModel.findOne(query, function (err, doc) {
+    if(err) return next(err);
+    doc.title = req.body.title || doc.title;
+    doc.description = req.body.description || doc.description;
+    // update doc
+    doc.save(function (err, result) {
+      if (err) return res.status(400).json(err);
+      if (result === null) return res.status(404).end();
+      return res.json({
+        message: 'Registro alterado com sucesso',
+        news: result
+      });
+    });
+  });
+});
 
  /**
   * @api {DELETE} /news/:id Deletar
@@ -146,7 +293,7 @@ router.post('/:id/images', function(req, res, next) {
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
- *     
+ *
  *   }
  */
 router.put('/:id/images', function(req, res, next) {

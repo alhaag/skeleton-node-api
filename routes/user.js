@@ -14,14 +14,32 @@ var UserModel = require('../model/user');
 
 /**
  * @api {GET} /user Listar
+ *
  * @apiGroup Users
- * @apiPermission admin
  * @apiDescription Obter a lista de usuários.
- * @apiExample {curl} Example usage:
- *   curl -X GET http://localhost/user -H "x-access-token: <your_access_token>"
+ * @apiPermission admin
+ *
+ * @apiHeader {String} x-access-token Token de acesso.
+ *
+ * @apiSuccessExample {json} Success-Reponse:
+ *   HTTP/1.1 200 OK
+ *   [
+ *     {
+ *       "_id": "5691565823220b7a4790b211",
+ *       "active": true,
+ *       "name": "André Luiz Haag",
+ *       "email": "andreluizhaag@gmail.com",
+ *     },
+ *     {
+ *       "_id": "5691565823220b7a4790b211",
+ *       "active": true,
+ *       "name": "Another User",
+ *       "email": "example@mail.com",
+ *     },
+ *   ]
  */
 router.get('/', function(req, res, next) {
-  UserModel.find({}, function (err, docs) {
+  UserModel.find({}, '_id active name email', function (err, docs) {
     res.json(docs);
   });
 });

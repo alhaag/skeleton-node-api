@@ -7,7 +7,19 @@
   },
   "apidoc": {
     "title": "Documentação da API",
-    "url" : "http://<api_domain>:<port>"
+    "description": "Esta documentação descreve os recursos disponibilizados pela API. Caso algum recurso retorne um erro 5xx ou a documentação possua alguma discordância entre em contato com o administrador.",
+    "url": "http://<api_domain>:<port>",
+    "order": [
+      "Teste",
+      "Login",
+      "Logout",
+      "Users",
+      "News"
+    ],
+    "template": {
+      "withCompare": false,
+      "withGenerator": false
+    }
   },
   "dependencies": {
     "async": "^1.5.0",
@@ -22,6 +34,8 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.10.6",
     "mongoose": "^4.3.3",
+    "mongoose-paginate": "^5.0.0",
+    "mongoose-slug-generator": "^1.0.2",
     "morgan": "~1.6.1",
     "multiparty": "^4.1.2",
     "path": "^0.12.7"

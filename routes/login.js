@@ -16,12 +16,12 @@ var UserModel = require('../model/user');
 
 /**
  * @api {POST} /login Autenticação
+ *
  * @apiGroup Login
  * @apiDescription Efetua o login para obter o toke de acesso a API. Este token
  * deve ser enviado no header de cada requisição HTTP que precise de autenticação.
  * @apiPermission none
- * @apiExample {curl} Example usage:
- *   curl -X POST http://<api_domain>:<port>/login -d '<json_param>'
+ *
  * @apiParam {String} email E-mail do usuário.
  * @apiParam {String} password Senha de acesso do usuário.
  * @apiParamExample {json} Request-Example:
@@ -33,19 +33,33 @@ var UserModel = require('../model/user');
  *   identificar o usuário nas próximas requisições. Deve ser incluido no header
  *   "x-access-token".
  * @apiSuccess {number} expires Time stamp em que a autenticação irá expirar.
- * @apiSuccessExample {json} Success-Response:
+ * @apiSuccessExample {json} Success-Reponse:
  *   HTTP/1.1 200 OK
  *   {
  *     token : "$2a$05$ooqAbytsQU2lAgBG.Ob8x.4T5F/AO/8s6fSYZXdvIXNDtnNt5h1uq",
  *     expires: "13965"
  *   }
+ *
+ * @apiErrorExample {json} Error-400:
+ *     HTTP/1.1 400 Bad Request
+ *     {
+ *       "error": "Parâmetro faltando ou inválido"
+ *     }
+ * @apiErrorExample {json} Error-401 :
+ *     HTTP/1.1 401 Unauthorized
+ *     {
+ *       "error": "Não autorizado"
+ *     }
  */
 router.post('/', function(req, res, next) {
   var secret = req.app.get('secret');
   var email = req.body.email || '';
   var password = req.body.password || '';
   if (email === '' || password === '') {
-    return res.send(401);
+     // 400 - Bad Request
+    return res.send(400).json({
+      "error": "Parâmetro faltando ou inválido"
+    });
   }
   // tenta recuperar o usuário
   UserModel.findOne({email: email}, function (err, user) {
@@ -61,9 +75,7 @@ router.post('/', function(req, res, next) {
       // seta o usuário como login ativo
       user.update({loggedIn: true}, function(err, user) {
         // se ocorrer erro no update
-        if (err) {
-          return res.sendStatus(500);
-        }
+        if (err) return res.sendStatus(500);
         // validade do token
         var expires = moment().add(1,'days').valueOf();
         // jera o token JWT
@@ -99,9 +111,10 @@ router.post('/', function(req, res, next) {
  *   }
  */
 router.post('/recovery', function(req, res, next) {
-  UserModel.findOne({email: email}, function (err, user) {
+  next(new Error("Pendente de implementação"));
+  /*UserModel.findOne({email: email}, function (err, user) {
     res.json(docs);
-  });
+  });*/
 });
 
 /**
@@ -122,9 +135,10 @@ router.post('/recovery', function(req, res, next) {
  *   }
  */
 router.post('/change-password', function(req, res, next) {
-  UserModel.find({}, function (err, docs) {
+  next(new Error("Pendente de implementação"));
+  /*UserModel.find({}, function (err, docs) {
     res.json(docs);
-  });
+  });*/
 });
 
 module.exports = router;

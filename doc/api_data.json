@@ -10,13 +10,6 @@
         "name": "none"
       }
     ],
-    "examples": [
-      {
-        "title": "Example usage:",
-        "content": "curl -X POST http://<api_domain>:<port>/login -d '<json_param>'",
-        "type": "curl"
-      }
-    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -65,8 +58,22 @@
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Reponse:",
           "content": "HTTP/1.1 200 OK\n{\n  token : \"$2a$05$ooqAbytsQU2lAgBG.Ob8x.4T5F/AO/8s6fSYZXdvIXNDtnNt5h1uq\",\n  expires: \"13965\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-400:",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"Parâmetro faltando ou inválido\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error-401 :",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"Não autorizado\"\n}",
           "type": "json"
         }
       ]
@@ -177,6 +184,97 @@
     "name": "PostLoginRecovery"
   },
   {
+    "type": "POST",
+    "url": "/logout",
+    "title": "Desautorização",
+    "group": "Logout",
+    "description": "<p>Desautoriza o token de acesso. Este token deve ser enviado no header de cada requisição HTTP que precise de autenticação.</p>",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -X POST http://<api_domain>:<port>/login -d '<json_param>'",
+        "type": "curl"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>E-mail do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Senha de acesso do usuário.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"email\":    \"andreluizhaag@gmail.com\",\n  \"password\": \"1a2b3c\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Token JWT(Jason Web Token) que serve para identificar o usuário nas próximas requisições. Deve ser incluido no header &quot;x-access-token&quot;.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "expires",
+            "description": "<p>Time stamp em que a autenticação irá expirar.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Reponse:",
+          "content": "HTTP/1.1 200 OK\n{\n  token : \"$2a$05$ooqAbytsQU2lAgBG.Ob8x.4T5F/AO/8s6fSYZXdvIXNDtnNt5h1uq\",\n  expires: \"13965\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-400:",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"error\": \"Parâmetro faltando ou inválido\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error-401 :",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"error\": \"Não autorizado\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/logout.js",
+    "groupTitle": "Logout",
+    "name": "PostLogout"
+  },
+  {
     "type": "DELETE",
     "url": "/news/:id",
     "title": "Deletar",
@@ -192,14 +290,101 @@
     "url": "/news",
     "title": "Listar",
     "group": "News",
-    "description": "<p>Obter lista de notícias.</p>",
-    "examples": [
+    "description": "<p>listar registros.</p>",
+    "permission": [
       {
-        "title": "Example usage:",
-        "content": "curl -X GET http://localhost/news -H \"x-access-token: <your_access_token>\"",
-        "type": "curl"
+        "name": "admin"
       }
     ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>Token de acesso.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "search",
+            "description": "<p>Uma ou mais palavras a serem buscadas. Quando este parâmetro for informado apenas registros contendo ao menos uma das palavras buscadas serão retornados</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "page",
+            "description": "<p>Indice da página.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "limit",
+            "description": "<p>Quantidade por página.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "\"title\"",
+              "\"createdAt\""
+            ],
+            "optional": true,
+            "field": "orderBy",
+            "defaultValue": "createdAt",
+            "description": "<p>Campo pelo qual os registros devem ser ordenados.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "\"asc\"",
+              "\"desc\""
+            ],
+            "optional": true,
+            "field": "orderDirection",
+            "defaultValue": "desc",
+            "description": "<p>Sentido da ordenação, &quot;asc&quot; ou &quot;desc&quot;.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "/news?search=pesquisar&page=1&limit=10&orderBy=title&orderDirection=asc",
+          "type": "String"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Reponse:",
+          "content": "HTTP/1.1 200 OK\n[\n  {\n    \"_id\": \"5691565823220b7a4790b211\",\n    \"slug\": \"titulo-1\"\n    \"title\": \"Título 1\",\n    \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry...\",\n    \"createdAt\": \"2016-01-10T22:11:54.157Z\",\n    \"updatedAt\": \"2016-01-10T22:11:54.157Z\",\n    \"images\": []\n  },\n  {\n    \"_id\": \"5691565823220b7a4790b212\",\n    \"slug\": \"titulo-2\"\n    \"title\": \"Título 2\",\n    \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry...\",\n    \"createdAt\": \"2016-01-10T22:11:54.157Z\",\n    \"updatedAt\": \"2016-01-10T22:11:54.157Z\",\n    \"images\": []\n  }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-400:",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"message\": \"news validation failed\",\n  \"name\": \"ValidationError\",\n  \"errors\": {\n    \"title\": {\n      \"properties\": {\n        \"type\": \"required\",\n        \"message\": \"Path `{PATH}` is required.\",\n        \"path\": \"title\",\n        \"value\": \"\"\n      },\n      \"message\": \"Path `title` is required.\",\n      \"name\": \"ValidatorError\",\n      \"kind\": \"required\",\n      \"path\": \"title\",\n      \"value\": \"\"\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "routes/news.js",
     "groupTitle": "News",
@@ -208,9 +393,58 @@
   {
     "type": "GET",
     "url": "/news/:id",
-    "title": "Obter uma notícia",
+    "title": "Recuperar",
     "group": "News",
-    "description": "<p>Obtem uma notícia.</p>",
+    "description": "<p>Recupera uma notícia por id ou slug.</p>",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>Token de acesso.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>O recurso pode ser obtido pela identificação do campo <code>_id</code> ou <code>slug</code>.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Reponse:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"_id\": \"5691565823220b7a4790b211\",\n  \"slug\": \"titulo-1\"\n  \"title\": \"Título 1\",\n  \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry...\",\n  \"createdAt\": \"2016-01-10T22:11:54.157Z\",\n  \"updatedAt\": \"2016-01-10T22:11:54.157Z\",\n  \"images\": []\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Er ror-404:",
+          "content": "HTTP/1.1 404 Not Found",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "routes/news.js",
     "groupTitle": "News",
@@ -219,13 +453,90 @@
   {
     "type": "POST",
     "url": "/news",
-    "title": "Incluir",
+    "title": "Criar",
     "group": "News",
-    "description": "<p>Incluir uma notícia.</p>",
+    "description": "<p>Criar uma nova notícia.</p>",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>Token de acesso.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Reponse:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"_id\": \"5691565823220b7a4790b211\",\n  \"slug\": \"titulo-1\"\n  \"title\": \"Título 1\",\n  \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry...\",\n  \"createdAt\": \"2016-01-10T22:11:54.157Z\",\n  \"updatedAt\": \"2016-01-10T22:11:54.157Z\",\n  \"images\": []\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-400:",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"message\": \"news validation failed\",\n  \"name\": \"ValidationError\",\n  \"errors\": {\n    \"title\": {\n      \"properties\": {\n        \"type\": \"required\",\n        \"message\": \"Path `{PATH}` is required.\",\n        \"path\": \"title\",\n        \"value\": \"\"\n      },\n      \"message\": \"Path `title` is required.\",\n      \"name\": \"ValidatorError\",\n      \"kind\": \"required\",\n      \"path\": \"title\",\n      \"value\": \"\"\n    }\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "Er ror-404:",
+          "content": "HTTP/1.1 404 Not Found",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "routes/news.js",
     "groupTitle": "News",
     "name": "PostNews"
+  },
+  {
+    "type": "POST",
+    "url": "/news/:id/images",
+    "title": "Alterar informações de imagens",
+    "group": "News",
+    "description": "<p>Permite alterar as informações da imagem com exceção do arquivo, para isso é necessário excluir o registro e criar uma nova imagem.</p>",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -X POST http://<api_domain>:<port>/news/<news_id>/images -H \"x-access-token: <your_access_token>\" -d \"<array of objects>\"",
+        "type": "curl"
+      }
+    ],
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": " [\n   {\n     \"_id\": \"568f29fe56cc259c13fddc9d\"\n     \"index\": 4,\n\t   \"description\": \"Nova descrição da imagem\"\n   }, {\n     \"_id\": \"568f29fe56cc259c13fddc9d\"\n\t   \"index\": 3,\n\t   \"description\": \"Nova descrição da imagem\"\n   }\n ]",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/news.js",
+    "groupTitle": "News",
+    "name": "PostNewsIdImages"
   },
   {
     "type": "POST",
@@ -259,7 +570,7 @@
     "url": "/news/:id",
     "title": "Atualizar",
     "group": "News",
-    "description": "<p>Atualizar uma notícia.</p>",
+    "description": "<p>Atualizar uma notícia específica.</p>",
     "version": "0.0.0",
     "filename": "routes/news.js",
     "groupTitle": "News",
@@ -323,19 +634,34 @@
     "url": "/user",
     "title": "Listar",
     "group": "Users",
+    "description": "<p>Obter a lista de usuários.</p>",
     "permission": [
       {
         "name": "admin"
       }
     ],
-    "description": "<p>Obter a lista de usuários.</p>",
-    "examples": [
-      {
-        "title": "Example usage:",
-        "content": "curl -X GET http://localhost/user -H \"x-access-token: <your_access_token>\"",
-        "type": "curl"
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>Token de acesso.</p>"
+          }
+        ]
       }
-    ],
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Reponse:",
+          "content": "HTTP/1.1 200 OK\n[\n  {\n    \"_id\": \"5691565823220b7a4790b211\",\n    \"active\": true,\n    \"name\": \"André Luiz Haag\",\n    \"email\": \"andreluizhaag@gmail.com\",\n  },\n  {\n    \"_id\": \"5691565823220b7a4790b211\",\n    \"active\": true,\n    \"name\": \"Another User\",\n    \"email\": \"example@mail.com\",\n  },\n]",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "routes/user.js",
     "groupTitle": "Users",
