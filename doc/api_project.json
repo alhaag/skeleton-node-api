@@ -7,7 +7,15 @@
     "Login",
     "Logout",
     "Users",
-    "News"
+    "News",
+    "Listar",
+    "Recuperar",
+    "Criar",
+    "Atualizar",
+    "Excluir",
+    "CriarImagens",
+    "AtualizarImagens",
+    "ExcluirImagem"
   ],
   "template": {
     "withCompare": false,
@@ -19,7 +27,7 @@
   "apidoc": "0.2.0",
   "generator": {
     "name": "apidoc",
-    "time": "2016-01-11T02:23:49.179Z",
+    "time": "2016-01-13T22:09:57.852Z",
     "url": "http://apidocjs.com",
     "version": "0.14.0"
   }

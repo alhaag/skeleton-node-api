@@ -1,156 +1,100 @@
 {
-  "slug": "titulo-da-noticia-1",
-  "title": "Título da Notícia 1",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
+  "slug": "fiesp-promove-hackaton-em-sao-paulo",
+  "title": "Fiesp promove hackaton em São Paulo",
+  "shortDescription": "Competição premiará aplicativos nas áreas de educação, saúde, segurança e social",
+  "description": "<p>Nos dias 26 e 27 de abril, a Fiesp (Federação da Indústria do Estado de São Paulo) promoverá um hackaton para desenvolvedores de aplicativos mobile. Dividida em quatro categorias – educação, saúde, segurança e social – a competição acontecerá na sede da instituição, em São Paulo, e tem como objetivo apresentar novas soluções para os problemas da cidade. Os participantes serão divididos em equipes formadas por programadores, designers, profissionais de comunicação e visionários.</p>",
+  "createdAt": "2005-04-23T18:25:43.511Z",
+  "updatedAt": "2005-04-23T18:25:43.511Z",
+  "keyWords": "fiesp hackaton sao paulo",
+  "images": []
 }
 {
-  "slug": "titulo-da-noticia-2",
-  "title": "Título da Notícia 2",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
+  "slug": "apple-perde-tentativa-de-banir-vendas-de-smartphone-da-samsung",
+  "title": "Apple perde tentativa de banir vendas de smartphone da Samsung",
+  "shortDescription": "A Apple e a Samsung têm litigado por aproximadamente três anos sobre diversos recursos de smartphones patenteados",
+  "description": "<p>Um juiz norte-americano rejeitou nesta quinta-feira o pedido da Apple para banimento permanente de vendas nos Estados Unidos de alguns smartphones antigos da Samsung, um importante revés para a fabricante de iPhone em sua batalha global de patentes. A juíza distrital Lucy Koh de San Jose, Califórnia, decidiu que a Apple não apresentou provas suficientes de que seus recursos patenteados são um impulsionador significativo o suficiente da demanda do consumidor para justificar uma ação judicial.</p>",
+  "createdAt": "2006-04-23T18:25:43.511Z",
+  "updatedAt": "2006-04-23T18:25:43.511Z",
+  "keyWords": "apple sansung banir vendas",
+  "images": []
 }
 {
-  "slug": "titulo-da-noticia-3",
-  "title": "Título da Notícia 3",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
+  "slug": "whatsapp-ou-facebook-messenger",
+  "title": "WhatsApp ou Facebook Messenger?",
+  "shortDescription": "Veja qual é o melhor app de mensagens",
+  "description": "<p>Em compensação, o WhatsApp dá total liberdade de personalização dos seus fundos de tela, ponto que o Facebook Messenger não oferece. Isso faz uma grande diferença também no visual, pois os usuários podem deixá-lo com a cara que mais gostarem. A personalização total do WhatsApp é muito mais interessante do que a do Facebook Messenger.</p>",
+  "createdAt": "2007-04-23T18:25:43.511Z",
+  "updatedAt": "2007-04-23T18:25:43.511Z",
+  "keyWords": "whatsapp facebook comparativo",
+  "images": []
 }
 {
-  "slug": "titulo-da-noticia-4",
-  "title": "Título da Notícia 4",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
+  "slug": "adolescente-de-17-anos-e-uma-grande-ameaca-ao-google",
+  "title": "Adolescente de 17 anos é uma grande ameaça ao Google",
+  "shortDescription": "Estudante de 17 anos foi o vencedor da feira de ciências Intel Foundation Young Scientist",
+  "description": "<p>Nicholas Schiefer, um estudante de 17 anos, foi o vencedor da feira de ciências Intel Foundation Young Scientist, para jovens cientistas. O adolescente ganhou na categoria de ciências da computação após criar um algoritmo de buscas que, no futuro, pode ser mais preciso que o Google ou agregar ao buscador um sistema de pesquisas mais aprimorado.</p>",
+  "createdAt": "2008-04-23T18:25:43.511Z",
+  "updatedAt": "2008-04-23T18:25:43.511Z",
+  "keyWords": "adolescente meaça google",
+  "images": []
 }
 {
-  "slug": "titulo-da-noticia-5",
-  "title": "Título da Notícia 5",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
+  "slug": "fabrica-japonesa-investe-em-robos-para-uso-domestico",
+  "title": "Fábrica japonesa investe em robôs para uso doméstico",
+  "shortDescription": "Veja como robôs para uso doméstico podem ajudar a população envelhecida",
+  "description": "<p><b>FUKUOKA, JAPÃO</b> - A produção de robôs no Japão é sinônimo, pelo menos na imaginação da maioria das pessoas, de um cenário de ficção científica, com laboratórios modernos e um entra e sai de pesquisadores bem pagos para planejar um futuro dominado por androides. Essa imagem desaparece assim que se entra na Tmsuk, uma empresa no subúrbio de Fukuoka, cidade no Sul do país. É uma companhia pequena, que luta para sobreviver sem verba oficial para pesquisas, mas tem conseguido avanços em áreas que ainda engatinham.</p>",
+  "createdAt": "2009-04-23T18:25:43.511Z",
+  "updatedAt": "2009-04-23T18:25:43.511Z",
+  "keyWords": "robos domesticos japão",
+  "images": []
 }
 {
-  "slug": "titulo-da-noticia-6",
-  "title": "Título da Notícia 6",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
+  "slug": "japao-comecara-a-transmissao-para-tvs-com-tecnologia-4k-em-2014",
+  "title": "Japão começará a transmissão para TVs com tecnologia 4K em 2014",
+  "shortDescription": "Além disso, emissora europeia será a primeira a realizar a transmissão com esse nível de qualidade",
+  "description": "<p>Durante a CES 2013, foi anunciado que a emissora europeia Eutelsat realizará transmissões para TVs com a tecnologia 4K, também conhecida como Ultra High Definition, para fins experimentais e demonstrativos. Agora, o Japão anunciou que deverá iniciar a transmissão em 2014.</p><p>De acordo com o jornal Asahi Shimbum, as transmissões 4K devem começar em terras nipônicas usando a comunicação de canais por satélite, seguindo para outros de alto alcance e chegando à exibição digital em uma data posterior. No momento, não existem muitos detalhes sobre como a tecnologia será utilizada, mas isso deve ser revelado em breve.</p><p>Vale lembrar que a final da Copa do Mundo de 2014, no Brasil, deverá ser transmitida com compatibilidade com a tecnologia 4K. Isso deve ajudar na popularização da tecnologia no Japão, um país que tem grande carinho pelo futebol.</p>",
+  "createdAt": "2010-04-23T18:25:43.511Z",
+  "updatedAt": "2010-04-23T18:25:43.511Z",
+  "keyWords": "transmissão tv 4k japão",
+  "images": []
 }
 {
-  "slug": "titulo-7",
-  "title": "Título 7",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
+  "slug": "brasil-bloqueia-porta-25-de-servidores-de-email-a-fim-de-diminuir-spam",
+  "title": "Brasil bloqueia porta 25 de servidores de email a fim de diminuir spam",
+  "shortDescription": "País já está em quinto lugar no ranking mundial de nações que possuem maior quantidade desse tipo de lixo eletrônico",
+  "description": "<p>Se você utiliza o Outlook, Thunderbird, Live Mail ou qualquer outro gerenciador de email, fique atento para alterar suas configurações o mais rápido possível. O Comitê Gestor da Internet, após anos de negociações com provedores de internet, finalmente decidiu fechar o acesso à porta 25, muito utilizado por spammers para envio de mensagens indesejadas.</p><p>A decisão foi tomada para tentar abaixar a posição do Brasil no ranking mundial de países com maior incidência de spam: atualmente, ele detém a 5ª posição na lista. Conforme os executivos do Comitê, a porta 25 era usada para comunicação de máquinas entre máquinas e não era gerenciada, sendo até hoje a mais utilizada por spammers para disparo de lixo eletrônico.</p><p>Bastante usada para conexão com servidores de email SMTP, a porta 25 será fechada completamente até dezembro deste ano e deverá ser substituída pela 587 ou ainda pela 465, utilizada pela Google. Quem utiliza webmail (como Outlook.com) não terá que fazer quaisquer alterações nas configurações.</p><p>O Comitê afirma ainda que é impossível garantir que a prática de spam será completamente erradicada com essa decisão, mas tem certeza de que deve ao menos minimizá-la, desde que as novas portas sejam mais bem gerenciadas pelos provedores de internet.</p>",
+  "createdAt": "2011-04-23T18:25:43.511Z",
+  "updatedAt": "2011-04-23T18:25:43.511Z",
+  "keyWords": "",
+  "images": []
 }
 {
-  "slug": "titulo-8",
-  "title": "Título 8",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  "slug": "o-que-e-seo",
+  "title": "O que é SEO?",
+  "shortDescription": "Search Engine Optimization (Otimização para sistemas de Busca)",
+  "description": "<p>O significado de SEO é Search Engine Optimization. Em português ele é conhecido como Otimização de Sites, MOB e Otimização para Buscas. O SEO nada mais é do que a otimização de uma página (ou até do site inteiro) para ser melhor compreendido pelas ferramentas de busca. A conseqüência da utilização das técnicas de SEO é o melhor posicionamento de um site em uma página de resultados de uma busca. O SEO é uma prática sem garantias, ou seja, nenhuma empresa ou pessoa pode garantir que seu site fique em primeiro em uma busca, pois o único capaz disto seria o próprio site de busca como o Google ou o Yahoo.</p><p>O SEO surgiu com a nova geração de sites de busca. Antes dela, a organização do links em uma páginas de resultado era alfabética como nos diretórios web. Na nova geração de ferramentas de busca, o posicionamento passou a depender da relevância. Esta relevância é definida por algoritmos, que são cálculos que servem para definir o quanto uma página é importante. Um dos mais conhecidos algoritmos de busca é o Google PageRank.</p><p>Os fatores que influenciam o posicionamento das páginas são guardado a sete chaves pelos site de busca. Porém, ao longo do tempo, foi possível identificar as melhores práticas que se resumem em empregar o bom senso na criação e estruturação de um site. O SEO também depende da palavra-chave que é o termo que você usa em um busca. Dependendo de quais palavras você utiliza, serão retornadas páginas diferentes em posições diferentes.</p><p>O SEO pode ser dividido em duas partes. Fatores internos e fatores externos. Os internos são relacionados ao site. Alguns exemplos são urls claras, utilização dos padrões web, títulos de página racionais e a correta utilização das tags html que é linguagem utilizada para construir páginas web. Já a parte externa analisa como os outros sites se relacionam com o site. Os exemplos são quantidade de links apontando para o site, quais sites apontam o site e o conteúdo do link apontado. Dependendo destes fatores, as páginas são pontuadas pelos sites de busca para que ele possa determinar a relevância da pagina e quais as palavras-chave relacionadas a ela. O Google utiliza um sistema de pontuação de 0 a 10 que é o PageRank.</p><p>Existe também o lado negro do SEO conhecido como Black Hat Seo. Nele, são utilizadas técnicas que tentam enganar os algoritmos das ferramentas de busca para melhorar o posicionamento da página como uso de texto invisível ou de exibir conteúdo diferente para pessoas e sites de busca. Quando descobertos, os sites de busca podem punir os sites que utilizam estas práticas diminuindo a importância do site ou chegando a excluí-lo da sua busca.</p><p>Não se deve confundir o SEO com links patrocinados, pois no segundo você pode pagar para ter a garantia de ficar na frente de outros resultados, podendo ficar até em primeiro se estiver disposto a pagar o preço.</p>",
   "createdAt": "2012-04-23T18:25:43.511Z",
   "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
+  "keyWords": "seo search engine optimization",
+  "images": []
 }
 {
-  "slug": "titulo-9",
-  "title": "Título 9",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
+  "slug": "anatel-amplia-direitos-de-usuarios-de-telefonia-internet-e-tv-paga",
+  "title": "Anatel amplia direitos de usuários de telefonia, internet e TV paga",
+  "shortDescription": "As novas regras, entre outras coisas, fixam uma validade mínima de 30 dias para os créditos das contas pré-pagas",
+  "description": "<p>O Brasil terá novas regras para telefonias fixa e móvel, internet e TVs por assinatura em 120 dias. Com a aprovação do Regulamento Geral de Direitos do Consumidor de Serviços de Telecomunicações (RGC), em portaria publicada hoje (10) pela Agência Nacional de Telecomuicações (Anatel) no Diário Oficial da União, direitos e garantias dos usuários desses serviços serão ampliados. Entre os benefícios previstos estão facilidades para o cancelamento dos serviços, a pedido do cliente. O bloqueio passará a ser feito de forma mais automática e com prazo máximo de dois dias para a conclusão, podendo ser feito por meio de ligação telefônica, pela internet ou pelos terminais.</p>",
+  "createdAt": "2014-04-23T18:25:43.511Z",
+  "updatedAt": "2014-04-23T18:25:43.511Z",
+  "keyWords": "anatel direitos telefonia tv",
+  "images": []
 }
 {
-  "slug": "titulo-10",
-  "title": "Título 10",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
-}
-{
-  "slug": "titulo-11",
-  "title": "Título 11",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
-}
-{
-  "slug": "titulo-12",
-  "title": "Título 12",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
-}
-{
-  "slug": "titulo-13",
-  "title": "Título 13",
-  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z",
-  "images": [],
-  "seo": {
-    "description": "",
-    "keyWords": ""
-  }
+  "slug": "impressao-3d-que-bicho-e-esse",
+  "title": "Impressão 3D: que bicho é esse?",
+  "shortDescription": "Se você gosta de fazer coisas, certamente ouviu falar nos últimos tempos de impressão 3D.",
+  "description": "<p>A impressão 3D é muitas vezes confundida com a prototipagem rápida. Vamos esclarecer a diferença: prototipagem rápida é um grupo inteiro de técnicas para fabricar partes ou modelos de objetos de maneira ágil. Técnicas de prototipagem rápida permitem que obtenhamos conjuntos ou peças em quantidades e condições que não são possíveis na linha de produção normal. Na maior parte das vezes, a prototipagem rápida é usada para construir modelos de estudo, análise e simulação.</p><p>A impressão 3D é uma técnica que é largamente usada em prototipagem rápida, mas também é capaz de muito mais. “Imprimir em 3D” significa, basicamente, pegar um modelo virtual de um objeto e, através de um processo aditivo, transformá-lo em uma objeto físico, real. Quer dizer, empilha-se material, através de várias técnicas diferentes, camada a camada, até que se tenha um objeto completo.</p>",
+  "createdAt": "2016-01-12T18:25:43.511Z",
+  "updatedAt": "2016-01-12T18:25:43.511Z",
+  "keyWords": "",
+  "images": []
 }

@@ -19,7 +19,7 @@ var UserModel = require('../model/user');
  * @apiDescription Obter a lista de usuários.
  * @apiPermission admin
  *
- * @apiHeader {String} x-access-token Token de acesso.
+ * @apiHeader {String} x-access-token Token de acesso obtido no login.
  *
  * @apiSuccessExample {json} Success-Reponse:
  *   HTTP/1.1 200 OK
@@ -49,9 +49,9 @@ router.get('/', function(req, res, next) {
  * @apiGroup Users
  * @apiDescription Incluir novo usuário.
  * @apiPermission admin
+ *
  * @apiHeader {String} x-access-token Token de acesso obtido no login.
- * @apiExample {curl} Example usage:
- *   curl -X POST http://localhost/user -H "x-access-token: <your_access_token>" -d '<json_param>'
+ *
  * @apiParam {String} name Nome do usuário.
  * @apiParam {String} email E-mail que será utilizado para autenticação no sistema.
  * @apiParam {String} password Senha que será utilizada para autenticação.

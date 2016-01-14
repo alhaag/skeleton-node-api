@@ -1,7 +1,23 @@
+/**
+ * Model user
+ *
+ * Modelo que representa o documento user.
+ * Agrega validações e comportamentos de persistencia no BD.
+ *
+ * @author André Luiz Haag <andreluizhaag@gmail.com>
+ * @license LICENSE.md
+ * @see middlewares/images
+ */
+
+/**
+ * dependencies
+ */
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
-// Definição do modelo
+/**
+ * Definição do modelo
+ */
 var UserSchema = new mongoose.Schema({
   active: {
     type: Boolean,
@@ -26,7 +42,9 @@ var UserSchema = new mongoose.Schema({
   }
 });
 
-// Tratamento antes do save
+/**
+ * Tratamento antes do save
+ */
 UserSchema.pre('save', function(next) {
   var user = this;
   if (!user.isModified('password')) return next();
@@ -40,7 +58,10 @@ UserSchema.pre('save', function(next) {
   });
 });
 
-//3
+/**
+ * Verifica a igualdade do passwors informado com o que esta persistido no
+ * documento de forma encriptada.
+ */
 UserSchema.methods.passwordChecks = function(password, next) {
   bcrypt.compare(password, this.password, function(err, isMatch) {
     if (err) return next(err);

@@ -6,7 +6,9 @@
  * @author André Luiz Haag <andreluizhaag@gmail.com>
  * @license LICENSE.md
  */
+
 var express = require('express');
+var expressValidator = require('express-validator');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -35,6 +37,7 @@ app.set('secret', config.secret); // secret variable
 app.use(logger('dev')); // use morgan to log requests to the console
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(expressValidator());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/doc', express.static(__dirname + '/doc')); // prove a doc estaticamente
 app.use(cookieParser());
