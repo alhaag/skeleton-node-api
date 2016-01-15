@@ -771,7 +771,7 @@
       "examples": [
         {
           "title": "Success-Reponse:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Registro excluido com sucesso\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Imagem removida com sucesso\"\n}",
           "type": "json"
         }
       ]

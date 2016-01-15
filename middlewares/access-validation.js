@@ -20,6 +20,9 @@ var jwt = require('jwt-simple');
  * realizado o login novamente. Isso forne uma forma de invalidar o token que
  * neta API é realizado pela rota /logout.
  *
+ * @param {object} req Request object.
+ * @param {object} res Response object.
+ * @param {object} next Function to call next matching route.
  */
 module.exports = function(req, res, next) {
   var token = (req.body && req.body.access_token) || (req.query && req.query.access_token) || req.headers['x-access-token'];

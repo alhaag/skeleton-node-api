@@ -9,16 +9,16 @@
  * @see http://apidocjs.com/
  */
 
- /**
-  * dependencies
-  */
+/**
+ * Dependencies
+ */
 var express = require('express');
 var router = express.Router();
 var images = require('../middlewares/images');
 var NewsModel = require('../model/news');
 
 /**
- * middlewre images options
+ * Middlewre images options
  */
 var imagesOptions = {
   "limit": 3,
@@ -440,6 +440,8 @@ router.put('/:id', function(req, res, next) {
      if (doc === null) return res.status(404).json({
        message: "Registro não existe"
      });
+     // invokes the middleware to remove images from disc
+     images.deleteAll(req, res, next, id, imagesOptions);
      // remove doc
      doc.remove(function (err, result) {
        if (err) return res.status(400).json(err);
@@ -649,7 +651,7 @@ router.put('/:id/images', function(req, res, next) {
  * @apiSuccessExample {json} Success-Reponse:
  *   HTTP/1.1 200 OK
  *   {
- *     "message": "Registro excluido com sucesso"
+ *     "message": "Imagem removida com sucesso"
  *   }
  *
  * @apiErrorExample {json} Error-400:
@@ -673,7 +675,29 @@ router.put('/:id/images', function(req, res, next) {
  *   }
  */
 router.delete('/:id/images/:id_image', function(req, res, next) {
- next(new Error("Pendente de implementação"));
+  // TODO: implements 403 Forbidden
+  // validate params from uri
+  req.checkParams('id', 'Parâmetro id inválido').isMongoId();
+  req.checkParams('id_image', 'Parâmetro id_image inválido').isMongoId();
+  var errors = req.validationErrors();
+  if (errors) {
+    return res.status(400).json({
+      message: 'Params validation error',
+      name: "RequestError",
+      errors: errors
+    });
+  }
+  var id = req.params.id;
+  var idImage = req.params.id_image;
+  // find doc
+  NewsModel.findOne({_id: id}, function (err, doc) {
+    if(err) return next(err);
+    if (doc === null) return res.status(404).json({
+      message: "Registro não existe"
+    });
+    // invokes the middleware to doc fill and save images in disc
+    images.delete(req, res, next, doc, idImage, imagesOptions);
+  });
 });
 
 module.exports = router;

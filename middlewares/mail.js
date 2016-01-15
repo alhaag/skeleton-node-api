@@ -7,7 +7,9 @@
  * @license LICENSE.md
  */
 
-// dependencies
+/**
+ * Dependencies
+ */
 var nodemailer = require('nodemailer');
 
 /**
@@ -51,7 +53,6 @@ var validadePut = function() {
  */
 module.exports.send = function(req, res, next, options, cb) {
   //var opt = processOptions(options);
-
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -71,7 +72,5 @@ module.exports.send = function(req, res, next, options, cb) {
       subject: 'hello',
       text: 'hello world!'
   });
-
   return cb(null, imgs);
-
 };

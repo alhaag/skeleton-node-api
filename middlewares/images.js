@@ -9,7 +9,9 @@
  * @see https://lodash.com/docs
  */
 
-// dependencies
+/**
+ * Dependencies
+ */
 var mongoose = require('mongoose');
 var async = require('async');
 var fs = require('fs');
@@ -17,7 +19,7 @@ var mkdirp = require("mkdirp");
 var _object = require('lodash/object');
 
 /**
- * Opções default para a persistencia das imagens em disco
+ * Default options.
  */
 var defaultOptions = {
   "limit": 10,
@@ -26,20 +28,40 @@ var defaultOptions = {
   "maxHeight": 600
 };
 
+/**
+ * Merge specific options to the default.
+ * @param {object} options Especific options from call.
+ */
 var processOptions = function(options) {
   return _object.merge(defaultOptions, options);
 };
 
-var validadePost = function() {
-
-};
-
-var validadePut = function() {
-
+/**
+ * Remove file and directories recursive.
+ * @param {string} path Directory to be removed.
+ */
+var deleteFolderRecursiveSync = function(path) {
+  if(fs.existsSync(path)) {
+    fs.readdirSync(path).forEach(function(file,index) {
+      var curPath = path + "/" + file;
+      if (fs.lstatSync(curPath).isDirectory()) { // recurse
+        deleteFolderRecursiveSync(curPath);
+      } else { // delete file
+        fs.unlinkSync(curPath);
+      }
+    });
+    fs.rmdirSync(path);
+  }
 };
 
 /**
- * Salva imagens recebidas por post.
+ * Salva imagens recebidas por POST.
+ *
+ * @param {object} req Request object.
+ * @param {object} res Response object.
+ * @param {object} next Function to call next matching route.
+ * @param {object} doc Document containing the images field.
+ * @param {object} options Especific options.
  */
 module.exports.post = function(req, res, next, doc, options) {
   // TODO: validade options, req.body
@@ -76,8 +98,7 @@ module.exports.post = function(req, res, next, doc, options) {
       },
       function(err) {
         if (err) return cb(err);
-        // return field images to persist in the model
-        //return cb(null, imgs);
+        // persist in the model
         doc.save(function (err, result) {
           if(err) next(err);
           return res.status(200).json(result.images);
@@ -88,27 +109,85 @@ module.exports.post = function(req, res, next, doc, options) {
 };
 
 /**
- * Salva imagens recebidas por post.
+ * Salva imagens recebidas por PUT.
+ *
+ * @param {object} req Request object.
+ * @param {object} res Response object.
+ * @param {object} next Function to call next matching route.
+ * @param {object} doc Document containing the images field.
+ * @param {object} options Especific options.
  */
 module.exports.put = function(req, res, next, doc, options) {
   // TODO: validade options, req.body
   var opt = processOptions(options);
   // fill sub doc images
   async.forEach(req.body, function (item, cbInterator) {
-    doc.images.findOne({_id: item._id}, function (err, doc) {
-      console.log(doc);
-    });
+    var image = doc.images.id(item._id);
+    if (image !== null) {
+      image.set({
+        "index": item.index || images.index,
+        "description": item.description || images.description
+      });
+    } else {
+      // TODO: se não existir alguma não persistir nada e retornar 404 com o corpo informando IDs inexistentes
+    }
     cbInterator(); // tell async that the iterator has completed
   },
   function(err) {
-    return res.status(200).json({"result": "ok"});
-
     if (err) return cb(err);
-    // return field images to persist in the model
-    //return cb(null, imgs);
+    // persist in the model
     doc.save(function (err, result) {
       if(err) next(err);
       return res.status(200).json(result.images);
     });
   });
+};
+
+/**
+ * Remove imagens recebidas por DELETE.
+ *
+ * @param {object} req Request object.
+ * @param {object} res Response object.
+ * @param {object} next Function to call next matching route.
+ * @param {object} doc Document containing the images field.
+ * @param {string} idImage Id of image field to remove.
+ * @param {object} options Especific options.
+ */
+module.exports.delete = function(req, res, next, doc, idImage, options) {
+  // TODO: validade options, req.body
+  var opt = processOptions(options);
+  // find subdocument
+  var image = doc.images.id(idImage);
+  if (image === null) return res.status(404).json({
+    message: "Imagem não existe"
+  });
+  // remove subdocument
+  image.remove();
+  fs.unlink('./public' + image.url, function(err) {
+    if (err) return next(err);
+    // persist parent
+    doc.save(function (err, result) {
+      if(err) next(err);
+      return res.status(200).json({
+        message: 'Imagem removida com sucesso'
+      });
+    });
+  });
+};
+
+/**
+ * Remove todas as imagens de um documento.
+ *
+ * @param {object} req Request object.
+ * @param {object} res Response object.
+ * @param {object} next Function to call next matching route.
+ * @param {string} docId Document id to remove images.
+ * @param {object} options Especific options.
+ */
+module.exports.deleteAll = function(req, res, next, docId, options) {
+  // TODO: validade options, req.body
+  var opt = processOptions(options);
+  // find subdocument
+  var path = opt.dir + docId;
+  deleteFolderRecursiveSync(path);
 };
