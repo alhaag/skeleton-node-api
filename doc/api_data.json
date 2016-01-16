@@ -724,7 +724,7 @@
   },
   {
     "type": "DELETE",
-    "url": "/news/:id/images/id_image",
+    "url": "/news/:id/images/:id_image",
     "title": "Excluir imagem",
     "name": "ExcluirImagem",
     "group": "News",

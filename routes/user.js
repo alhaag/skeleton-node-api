@@ -8,9 +8,22 @@
  * @see middlewares/images
  * @see http://apidocjs.com/
  */
+
+/**
+ * Dependencies
+ */
 var express = require('express');
 var router = express.Router();
+var images = require('../middlewares/images');
 var UserModel = require('../model/user');
+
+/**
+ * Middlewre images options
+ */
+var imagesOptions = {
+  "limit": 1,
+  "dir": "./public/images/user/"
+};
 
 /**
  * @api {GET} /user Listar

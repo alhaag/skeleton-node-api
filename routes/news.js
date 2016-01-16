@@ -21,7 +21,7 @@ var NewsModel = require('../model/news');
  * Middlewre images options
  */
 var imagesOptions = {
-  "limit": 3,
+  "limit": 10,
   "dir": "./public/images/news/"
 };
 
@@ -636,7 +636,7 @@ router.put('/:id/images', function(req, res, next) {
 });
 
 /**
- * @api {DELETE} /news/:id/images/id_image Excluir imagem
+ * @api {DELETE} /news/:id/images/:id_image Excluir imagem
  *
  * @apiName ExcluirImagem
  * @apiGroup News
