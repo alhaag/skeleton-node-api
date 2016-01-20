@@ -9,8 +9,8 @@
  * @see http://apidocjs.com/
  */
 
-var model = require('../model/user');
 var jwt = require('jwt-simple');
+var model = require(__base + 'model/user');
 
 /**
  * Autoriza ou não o acesso a recursos da api.
